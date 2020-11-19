@@ -33,7 +33,7 @@
 
     
 
-    background-image: url("https://ismizo.com/resources/layout_pics/favicon.png");
+   /* background-image: url("https://ismizo.com/resources/layout_pics/favicon.png");*/
     background-position: center;
     background-size: contain;
 
@@ -105,6 +105,7 @@ input{
     min-height: 100px;
 
     text-align: center;
+    cursor: text;
 
     background-color: white;
     color: black;

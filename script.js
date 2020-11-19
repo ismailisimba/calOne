@@ -26,7 +26,7 @@ function myMainFunc () {
 
    e.target.value = inputNums;
    
-   document.getElementById("answer").innerHTML = inputNums;
+  // document.getElementById("answer").innerHTML = inputNums;
    inputNums = [];
    
  }
@@ -36,10 +36,11 @@ function myMainFunc () {
  function performCalc() {
 
   let selectedFunc = document.getElementById("tax-select").value;
-  document.getElementById("answer").innerHTML =  selectedFunc;
+ // document.getElementById("answer").innerHTML =  selectedFunc;
 
   if (selectedFunc === "pls") {
     alert("Please select a Tax.");
+   // document.getElementById("answer").innerHTML = window.location;
 
   }else if(selectedFunc === "vat"){
     calculateVat();
@@ -118,25 +119,51 @@ function myMainFunc () {
  function calculatePens(){
 
   let num = parseInt(actualNums,10);
-  document.getElementById("answer").innerHTML =  num;
+
+  let taxValue = 0.1 * num;
+  let totalTax = taxValue*2;
+
+  let tempDiv = document.createElement("div");
+  
+  tempDiv.innerHTML = `<p>You and your employer each contribute 10% which is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p><p>Total contributed: ${totalTax.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)}</p>`;
+  document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
  }
 
 
  function calculateCityLev(){
 
   let num = parseInt(actualNums,10);
-  document.getElementById("answer").innerHTML =  num;
+  let taxValue = num * (0.3/100);
+
+  let tempDiv = document.createElement("div");
+  
+  tempDiv.innerHTML = `<p>City levy tax is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
+
+  document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
  }
 
  function  calculateSdl(){
 
   let num = parseInt(actualNums,10);
-  document.getElementById("answer").innerHTML =  num;
+  let taxValue = num * (4.5/100);
+
+
+  let tempDiv = document.createElement("div");
+  
+  tempDiv.innerHTML = `<p>Your SDL tax amount is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
+  document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
  }
 
 
  function  calculateCorp(){
 
   let num = parseInt(actualNums,10);
-  document.getElementById("answer").innerHTML =  num;
+  let taxValue = num * 0.3;
+
+  let tempDiv = document.createElement("div");
+  
+  tempDiv.innerHTML = `<p>Your corporate tax amount is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
+
+  
+  document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
  }
