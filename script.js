@@ -45,6 +45,10 @@ function myMainFunc () {
   }else if(selectedFunc === "vat"){
     calculateVat();
 
+  }else if(selectedFunc === "inclvat"){
+
+    calculateInclVat();
+
   }else if(selectedFunc === "paye"){
     calculatePaye();
     
@@ -106,11 +110,11 @@ function myMainFunc () {
     }
 
 
-  let salaryWithTax = num - taxValue;
+ // let salaryWithTax = num - taxValue;
 
   let tempDiv = document.createElement("div");
   
-  tempDiv.innerHTML = `<p>The tax amount is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p><p>Salary after tax is: ${salaryWithTax.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)}</p>`;
+  tempDiv.innerHTML = `<p>PAYE amount is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
   
   document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
  }
@@ -137,7 +141,7 @@ function myMainFunc () {
 
   let tempDiv = document.createElement("div");
   
-  tempDiv.innerHTML = `<p>City levy tax is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
+  tempDiv.innerHTML = `<p>City Service Levy is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
 
   document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
  }
@@ -166,4 +170,21 @@ function myMainFunc () {
 
   
   document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
+ }
+
+
+
+
+ function calculateInclVat() {
+  let num = parseInt(actualNums,10);
+  let taxValue = num /(1.18);
+  taxValue = Math.floor(taxValue);
+  //let priceWithTax = num - taxValue;
+
+  let tempDiv = document.createElement("div");
+  
+  tempDiv.innerHTML = `<p>The inclusive vat is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
+  
+  document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
+
  }
