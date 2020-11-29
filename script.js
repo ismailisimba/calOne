@@ -77,13 +77,13 @@ function myMainFunc () {
  function calculateVat(){
 
   let num = parseInt(actualNums,10);
-  let taxValue = num *(18/118);
+  let taxValue = num * 0.18;
   taxValue = Math.floor(taxValue);
   let priceWithTax = num + taxValue;
 
   let tempDiv = document.createElement("div");
   
-  tempDiv.innerHTML = `<p>The tax amount is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p><p>Price after tax is: ${priceWithTax.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)}</p>`;
+  tempDiv.innerHTML = `<p>The tax amount is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p><p>Price with tax is: ${priceWithTax.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)}</p>`;
   
   document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
  }
@@ -177,13 +177,13 @@ function myMainFunc () {
 
  function calculateInclVat() {
   let num = parseInt(actualNums,10);
-  let taxValue = num /(1.18);
+  let taxValue = num *(18/118);
   taxValue = Math.floor(taxValue);
-  //let priceWithTax = num - taxValue;
+  let priceWithTax = num - taxValue;
 
   let tempDiv = document.createElement("div");
   
-  tempDiv.innerHTML = `<p>The inclusive vat is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
+  tempDiv.innerHTML = `<p>The inclusive vat is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p><p>Price without tax is: ${priceWithTax.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)}</p>`;
   
   document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
 
