@@ -98,13 +98,13 @@ function myMainFunc () {
     if(num<=270000){
       taxValue = 0;
     }else if(num>270000 && num<=520000){
-      taxValue = 0.09 * (num-270000);
+      taxValue = 0.08 * (num-270000);
     }else if(num>520000 && num<=760000){
-      taxValue = (0.2 * (num-520000))+22500;
+      taxValue = (0.2 * (num-760000))+20000;
     }else if(num>760000 && num<=1000000){
-      taxValue = (0.25 * (num-760000))+70500;
+      taxValue = (0.25 * (num-760000))+68000;
     }else if(num>1000000){
-      taxValue = (0.3 * (num-1000000))+130500;
+      taxValue = (0.3 * (num-1000000))+128000;
     }else {
       taxValue = 0.696969;
     }
