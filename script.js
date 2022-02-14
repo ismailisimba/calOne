@@ -100,7 +100,7 @@ function myMainFunc () {
     }else if(num>270000 && num<=520000){
       taxValue = 0.08 * (num-270000);
     }else if(num>520000 && num<=760000){
-      taxValue = (0.2 * (num-760000))+20000;
+      taxValue = (0.2 *(num-520000))+20000;
     }else if(num>760000 && num<=1000000){
       taxValue = (0.25 * (num-760000))+68000;
     }else if(num>1000000){
@@ -114,7 +114,7 @@ function myMainFunc () {
 
   let tempDiv = document.createElement("div");
   
-  tempDiv.innerHTML = `<p>PAYE amount is: ${taxValue.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)} </p>`;
+  tempDiv.innerHTML = `<p>PAYE amount is: ${taxValue} Tshs.</p>`;
   
   document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
  }
