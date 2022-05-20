@@ -113,6 +113,8 @@ function myMainFunc () {
  // let salaryWithTax = num - taxValue;
 
   let tempDiv = document.createElement("div");
+
+  taxValue = addMyCommas(taxValue);
   
   tempDiv.innerHTML = `<p>PAYE amount is: ${taxValue} Tshs.</p>`;
   
@@ -187,4 +189,37 @@ function myMainFunc () {
   
   document.getElementById("answer").innerHTML =  tempDiv.innerHTML;
 
+ }
+
+
+ function addMyCommas(taxValue){
+    const newVal =  taxValue.toString();
+    let newStr = "";
+    let myI = null;
+    let counter = 1;
+
+    for(let i=newVal.length-1; i>=0;i--){
+      if(newVal[i]==="."){
+        myI = i;
+      }else{
+    
+      }
+    }
+
+    if(myI===null){
+      myI=newVal.length;
+    }
+
+    for(let i=myI-1;i>=0;i--){
+
+      if(counter==4){
+        newStr = newVal[i]+","+newStr;
+        counter = 2;
+      }else{
+        newStr = newVal[i]+newStr;
+        counter++
+      }
+    }
+    newStr = newStr+newVal.slice(myI);
+    return newStr;
  }
